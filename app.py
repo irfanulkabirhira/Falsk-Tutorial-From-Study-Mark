@@ -1,11 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 
-app = CEFlask(__name__)
+app = Flask(__name__)
 
-@app.route('/')
-
+@app.route('/')  # Home page
 def home():
-    return "Welcome to Flask"  # Fixed the typo in "Welcome"
+    return render_template('index.html')
 
-if __name__ == '__main__':  # Ensure proper indentation
+@app.route('/about')  # About page
+def about():
+    return render_template('about.html')
+
+if __name__ == '__main__':
     app.run(debug=True)
